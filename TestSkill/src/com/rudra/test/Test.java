@@ -40,10 +40,7 @@ public class Test {
     		  System.out.println("prime number : " + i); 
 	}
       
-     String s = "abc";
-     String s1= new String("abc");
-     String s2 = new String("abc");
-     System.out.println(s2.equals(s1));
+    
      
       
 	}
