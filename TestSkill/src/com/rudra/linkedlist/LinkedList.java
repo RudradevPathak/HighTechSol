@@ -81,7 +81,7 @@ public class LinkedList {
 			return;
 		}
 		Node pointer = firstNode;
-		System.out.print(firstNode.getData());
+		System.out.print(":"+firstNode.getData()+"\n");
 		 pointer = firstNode.getLink();
 		while(pointer.getLink() != null){
 			System.out.println( ":"+pointer.getData());
@@ -130,5 +130,37 @@ public class LinkedList {
 		
 		}
 		size--;
+	}
+
+	public void readnthNodeFromEnd(int i) {
+
+		Node tmp = firstNode;
+		int length = 0;
+		while (tmp != null) {
+			tmp = tmp.getLink();
+			length++;
+		}
+
+		tmp = firstNode;
+		System.out.println("length:" + length);
+		for (int j = 1; j < length - i + 1; j++) {
+			tmp = tmp.getLink();
+		}
+		System.out.println(i + " from end in 2 scan:" + tmp.getData());
+	}
+
+	public void readnthNodeFromEndOneScan(int i) {
+		Node firstPointer = firstNode;
+		Node secondPointer = firstNode;//increment same as i 
+		
+		for(int j =1; j<i+1;j++){
+			secondPointer = secondPointer.getLink();
+		}
+		while(secondPointer != null){//increment both by one at a time
+			secondPointer = secondPointer.getLink();
+			firstPointer = firstPointer.getLink();
+		}
+		
+		System.out.println(i+" from end in 1 scan:"+firstPointer.getData());
 	}
 }
